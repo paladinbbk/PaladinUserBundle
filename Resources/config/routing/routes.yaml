@@ -1,0 +1,11 @@
+paladin.user.security_login:
+    path: /login
+    controller: Paladin\UserBundle\Controller\SecurityController::login
+    
+paladin.user.security_login_check:
+    path: /login_check
+    controller: Paladin\UserBundle\Controller\SecurityController::loginCheck
+    
+paladin.user.security_logout:
+    path: /logout
+    controller: Paladin\UserBundle\Controller\SecurityController::logout

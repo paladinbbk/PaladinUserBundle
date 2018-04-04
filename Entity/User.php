@@ -10,7 +10,6 @@ use Paladin\UserBundle\Model\UserInterface;
  */
 class User implements UserInterface
 {
-    const ROLE_DEFAULT = 'ROLE_USER';
     
     /**
      * @ORM\Id()
