@@ -1,1 +1,9 @@
 services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        
+    Paladin\UserBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
