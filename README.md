@@ -7,19 +7,25 @@ The PaladinUserBundle adds support for a database-backed user system in Symfony4
 Installation
 ------------
 
+
+```sh
+composer require paladinbbk/user-bundle
+```
+
+
 ```php
 
 <?php
-// src/AppBundle/Entity/User.php
+// src/Entity/User.php
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
-use FOS\UserBundle\Entity\User as BaseUser;
+use Paladin\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="users")
  */
 class User extends BaseUser
 {
@@ -40,6 +46,17 @@ class User extends BaseUser
 ```
 
 ```yaml
+#config/routes.yaml
+
+paladin.user:
+    resource: '@PaladinUserBundle/Resources/config/routing/routes.yaml'
+
+```
+
+
+
+```yaml
+#config/packages/security.yaml
 
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
@@ -81,4 +98,8 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: ROLE_USER }
 
+```
+
+```sh
+php bin/console doctrine:schema:update --force
 ```
