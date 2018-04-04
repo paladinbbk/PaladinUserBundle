@@ -13,6 +13,7 @@ composer require paladinbbk/user-bundle
 ```
 
 
+Create Entity User
 ```php
 
 <?php
@@ -45,6 +46,7 @@ class User extends BaseUser
 
 ```
 
+add routes
 ```yaml
 #config/routes.yaml
 
@@ -54,12 +56,11 @@ paladin.user:
 ```
 
 
-
+put security.yaml
 ```yaml
 #config/packages/security.yaml
 
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     encoders:
         App\Entity\User:
             algorithm: bcrypt
@@ -81,16 +82,6 @@ security:
             logout:       true
             anonymous:    true
 
-            # activate different ways to authenticate
-
-            # http_basic: true
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: true
-            # https://symfony.com/doc/current/security/form_login_setup.html
-
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -100,6 +91,7 @@ security:
 
 ```
 
+update database schema:
 ```sh
 php bin/console doctrine:schema:update --force
 ```
