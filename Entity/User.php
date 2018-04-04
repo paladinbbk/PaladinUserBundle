@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Paladin\UserBundle\Model\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\MappedSuperclass
  */
 class User implements UserInterface
 {
