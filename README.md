@@ -95,3 +95,8 @@ update database schema:
 ```sh
 php bin/console doctrine:schema:update --force
 ```
+
+create user:
+```sh
+php bin/console paladin:user:create
+```
