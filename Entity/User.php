@@ -19,7 +19,7 @@ class User implements UserInterface
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $username;
 
@@ -34,16 +34,18 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $salt;
     
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $confirmationToken;
     
     private $plainPassword;
+
+    public function __construct() {}
 
     public function eraseCredentials()
     {

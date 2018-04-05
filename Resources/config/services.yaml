@@ -7,3 +7,7 @@ services:
     Paladin\UserBundle\Controller\:
         resource: '../../Controller'
         tags: ['controller.service_arguments']
+        
+    Paladin\UserBundle\Command\CreateUserCommand:
+        tags:
+            - { name: 'console.command', command: 'paladin:user:create' }
