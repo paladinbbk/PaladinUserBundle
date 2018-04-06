@@ -20,7 +20,7 @@ class SecurityController extends Controller
         ));
     }
 
-    public function loginCheckAction() {}
+    public function loginCheck() {}
 
-    public function logoutAction() {}
+    public function logout() {}
 }
