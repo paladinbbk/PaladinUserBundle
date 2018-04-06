@@ -65,7 +65,11 @@ security:
         App\Entity\User:
             algorithm: bcrypt
             cost: 12
-            
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
     providers:
         user_db:
             entity: { class: App\Entity\User, property: username }

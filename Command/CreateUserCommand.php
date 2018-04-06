@@ -116,7 +116,7 @@ EOT
         $user->setUsername($username);
         $user->setSalt(md5(uniqid()));
         if ($superadmin) {
-            $user->setRoles(['SUPER_ADMIN_ROLE']);
+            $user->setRoles(['ROLE_SUPER_ADMIN']);
         }
 //        $user->setEmail($email);
 //        $user->setPlainPassword();
