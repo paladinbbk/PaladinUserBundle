@@ -115,6 +115,9 @@ EOT
         $user = new \App\Entity\User;
         $user->setUsername($username);
         $user->setSalt(md5(uniqid()));
+        if ($superadmin) {
+            $user->setRoles(['SUPER_ADMIN_ROLE']);
+        }
 //        $user->setEmail($email);
 //        $user->setPlainPassword();
 //        $user->setEnabled((bool) $active);
