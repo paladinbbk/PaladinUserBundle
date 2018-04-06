@@ -20,8 +20,7 @@
         "symfony/security-bundle": "~3.0|~4.0",
         "symfony/twig-bundle": "~3.0|~4.0",
         "symfony/validator": "~3.0|~4.0",
-        "twig/twig": "~2.0",
-        "symfony/templating": "~3.0|~4.0"
+        "twig/twig": "~2.0"
     },
     "require-dev": {
         "symfony/console": "~3.0|~4.0"
