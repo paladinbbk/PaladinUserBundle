@@ -83,16 +83,16 @@ EOT
             });
             $questions['username'] = $question;
         }
-//        if (!$input->getArgument('email')) {
-//            $question = new Question('Please choose an email:');
-//            $question->setValidator(function ($email) {
-//                if (empty($email)) {
-//                    throw new \Exception('Email can not be empty');
-//                }
-//                return $email;
-//            });
-//            $questions['email'] = $question;
-//        }
+        if (!$input->getArgument('email')) {
+            $question = new Question('Please choose an email:');
+            $question->setValidator(function ($email) {
+                if (empty($email)) {
+                    throw new \Exception('Email can not be empty');
+                }
+                return $email;
+            });
+            $questions['email'] = $question;
+        }
         if (!$input->getArgument('password')) {
             $question = new Question('Please choose a password:');
             $question->setValidator(function ($password) {
@@ -118,7 +118,7 @@ EOT
         if ($superadmin) {
             $user->setRoles(['ROLE_SUPER_ADMIN']);
         }
-//        $user->setEmail($email);
+        $user->setEmail($email);
 //        $user->setPlainPassword();
 //        $user->setEnabled((bool) $active);
 //        $user->setSuperAdmin((bool) $superadmin);

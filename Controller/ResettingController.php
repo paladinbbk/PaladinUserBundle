@@ -2,6 +2,7 @@
 
 namespace Paladin\UserBundle\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -14,14 +15,29 @@ class ResettingController extends Controller
     
     public function sendEmail(Request $request)
     {
-        if (false) {
-            //try to send
-            
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(User::class)->findOneByUsername($request->get('username'));
+
+        if (!$user) {
+
             //add flash error
             
             return $this->redirectToRoute('paladin_user_resetting_request');
         }
-        
+
+        $token = md5(uniqid());
+        $user->setConfirmationToken($token);
+        $em->flush();
+
+        $mailer = $this->get('mailer');
+
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom('send@example.com')
+            ->setTo('recipient@example.com')
+            ->setBody($this->generateUrl('paladin_user_resetting_reset', ['token' => $token]),'text/html');
+
+        $mailer->send($message);
+
         return $this->redirectToRoute('paladin_user_resetting_check_email');
     }
     

@@ -1,0 +1,17 @@
+<form action="{{ path('paladin_user_registration_store_user') }}" method="POST">
+    <div>
+        <label for="username">{{ 'resetting.request.username'|trans }}</label>
+        <input type="text" id="username" name="username" required="required" />
+    </div>
+    <div>
+        <label for="email">{{ 'resetting.request.email'|trans }}</label>
+        <input type="text" id="email" name="email" required="required" />
+    </div>
+    <div>
+        <label for="password">{{ 'resetting.request.password'|trans }}</label>
+        <input type="text" id="password" name="password" required="required" />
+    </div>
+    <div>
+        <input type="submit" value="{{ 'resetting.request.submit'|trans }}" />
+    </div>
+</form>

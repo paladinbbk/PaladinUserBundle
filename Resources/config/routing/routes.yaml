@@ -30,8 +30,16 @@ paladin_user_resetting_reset:
     path: /resetting/reset/{token}
     controller: Paladin\UserBundle\Controller\ResettingController::reset
 
-#Register
+#Registration
     
-#paladin_user_resetting_request:
-#    path: /resetting/request
-#    controller: Paladin\UserBundle\Controller\ResettingController::request
+paladin_user_registration_show_form:
+    path: /registration
+    controller: Paladin\UserBundle\Controller\RegistrationController::showForm
+
+paladin_user_registration_store_user:
+    path: /registration/store-user
+    controller: Paladin\UserBundle\Controller\RegistrationController::storeUser
+
+paladin_user_registration_success:
+    path: /registration/success
+    controller: Paladin\UserBundle\Controller\RegistrationController::success
