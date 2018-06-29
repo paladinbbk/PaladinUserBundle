@@ -34,7 +34,7 @@ class CreateUserCommand extends Command
             ->setDescription('Create a user.')
             ->setDefinition(array(
                 new InputArgument('username', InputArgument::REQUIRED, 'The username'),
-//                new InputArgument('email', InputArgument::REQUIRED, 'The email'),
+                new InputArgument('email', InputArgument::REQUIRED, 'The email'),
                 new InputArgument('password', InputArgument::REQUIRED, 'The password'),
                 new InputOption('super-admin', null, InputOption::VALUE_NONE, 'Set the user as super admin'),
                 new InputOption('inactive', null, InputOption::VALUE_NONE, 'Set the user as inactive'),
@@ -59,11 +59,11 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $username = $input->getArgument('username');
-      //  $email = $input->getArgument('email');
+        $email = $input->getArgument('email');
         $password = $input->getArgument('password');
         $inactive = $input->getOption('inactive');
         $superadmin = $input->getOption('super-admin');
-        $this->create($username, $password, !$inactive, $superadmin);
+        $this->create($username, $password, !$inactive, $superadmin, $email);
         $output->writeln(sprintf('Created user <comment>%s</comment>', $username));
     }
     
@@ -110,7 +110,7 @@ EOT
         }
     }
     
-    private function create($username, $password, $active, $superadmin)
+    private function create($username, $password, $active, $superadmin, $email)
     {
         $user = new \App\Entity\User;
         $user->setUsername($username);

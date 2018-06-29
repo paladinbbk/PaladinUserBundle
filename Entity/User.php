@@ -67,7 +67,7 @@ class User implements UserInterface
         return $this->username;
     }
 
-    public function setUsername(string $username): self
+    public function setUsername(string $username): UserInterface
     {
         $this->username = $username;
 
@@ -79,7 +79,7 @@ class User implements UserInterface
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(string $email): UserInterface
     {
         $this->email = $email;
 
@@ -91,7 +91,7 @@ class User implements UserInterface
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword(string $password): UserInterface
     {
         $this->password = $password;
 
@@ -103,7 +103,7 @@ class User implements UserInterface
         return $this->plainPassword;
     }
 
-    public function setPlainPassword(string $plainPassword): self
+    public function setPlainPassword(string $plainPassword): UserInterface
     {
         $this->plainPassword = $plainPassword;
 
@@ -117,7 +117,7 @@ class User implements UserInterface
         return array_unique($roles);
     }
 
-    public function setRoles(array $roles): self
+    public function setRoles(array $roles): UserInterface
     {
         $this->roles = $roles;
 
@@ -129,7 +129,7 @@ class User implements UserInterface
         return $this->salt;
     }
 
-    public function setSalt(string $salt): self
+    public function setSalt(string $salt): UserInterface
     {
         $this->salt = $salt;
 
@@ -141,7 +141,7 @@ class User implements UserInterface
         return $this->confirmationToken;
     }
 
-    public function setConfirmationToken(string $confirmationToken): self
+    public function setConfirmationToken(string $confirmationToken): UserInterface
     {
         $this->confirmationToken = $confirmationToken;
 
