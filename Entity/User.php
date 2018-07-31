@@ -129,7 +129,7 @@ class User implements UserInterface
         return $this->salt;
     }
 
-    public function setSalt(string $salt): UserInterface
+    public function setSalt($salt): UserInterface
     {
         $this->salt = $salt;
 
@@ -141,7 +141,7 @@ class User implements UserInterface
         return $this->confirmationToken;
     }
 
-    public function setConfirmationToken(string $confirmationToken): UserInterface
+    public function setConfirmationToken($confirmationToken): UserInterface
     {
         $this->confirmationToken = $confirmationToken;
 
